@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CoC Keeper 工具箱</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="panel">
+
+        <h1>🕵️ CoC Keeper 工具箱</h1>
+
+        <p class="subtitle">
+            快来看看这具尸体上有什么吧
+        </p>
+
+        <!-- 职业 -->
+
+        <div class="form-group">
+
+            <label for="job">
+                职业
+            </label>
+
+            <select id="job">
+            </select>
+
+        </div>
+
+        <!-- 年代 -->
+
+        <div class="form-group">
+
+            <label for="era">
+                年代
+            </label>
+
+            <select id="era">
+
+                <option value="1920年代">
+                    1920年代
+                </option>
+
+                <option value="现代">
+                    现代
+                </option>
+
+            </select>
+
+        </div>
+
+        <!-- 尸体状态 -->
+
+        <div class="form-group">
+
+            <label for="corpse">
+                尸体状态
+            </label>
+
+            <select id="corpse">
+
+                <option value="新鲜">
+                    新鲜
+                </option>
+
+                <option value="死亡一天">
+                    死亡一天
+                </option>
+
+                <option value="腐烂">
+                    腐烂
+                </option>
+
+                <option value="白骨">
+                    白骨
+                </option>
+
+            </select>
+
+        </div>
+
+        <!-- 成功等级 -->
+
+        <div class="form-group">
+
+            <label for="success">
+                搜查结果
+            </label>
+
+            <select id="success">
+
+                <option value="普通成功">
+                    普通成功
+                </option>
+
+                <option value="困难成功">
+                    困难成功
+                </option>
+
+                <option value="极难成功">
+                    极难成功
+                </option>
+
+                <option value="大成功">
+                    大成功
+                </option>
+
+            </select>
+
+        </div>
+
+        <button onclick="searchBody()">
+            🔍 开始搜查
+        </button>
+
+        <div id="output"
+             class="result-box">
+
+            <h3>等待搜查...</h3>
+
+            <p>
+                请选择职业、年代和搜查等级。
+            </p>
+
+        </div>
+
+        <div class="footer">
+
+            Call of Cthulhu Keeper Assistant v2.0
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/data.js"></script>
+
+<script src="js/app.js"></script>
+
+</body>
+
+</html>
