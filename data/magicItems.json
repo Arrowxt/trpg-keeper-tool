@@ -1,0 +1,176 @@
+[
+  {
+    "name": "治疗药水",
+    "type": "potion",
+    "rarity": "common",
+    "value": 50
+  },
+
+  {
+    "name": "攀爬药水",
+    "type": "potion",
+    "rarity": "common",
+    "value": 100
+  },
+
+  {
+    "name": "水下呼吸药水",
+    "type": "potion",
+    "rarity": "common",
+    "value": 100
+  },
+
+  {
+    "name": "隐形药水",
+    "type": "potion",
+    "rarity": "rare",
+    "value": 500
+  },
+
+  {
+    "name": "飞行药水",
+    "type": "potion",
+    "rarity": "rare",
+    "value": 1000
+  },
+
+  {
+    "name": "力量药剂",
+    "type": "potion",
+    "rarity": "rare",
+    "value": 800
+  },
+
+  {
+    "name": "防护戒指",
+    "type": "ring",
+    "rarity": "rare",
+    "value": 2500
+  },
+
+  {
+    "name": "隐身戒指",
+    "type": "ring",
+    "rarity": "legendary",
+    "value": 50000
+  },
+
+  {
+    "name": "法术储存戒指",
+    "type": "ring",
+    "rarity": "veryRare",
+    "value": 30000
+  },
+
+  {
+    "name": "精灵斗篷",
+    "type": "wondrous",
+    "rarity": "uncommon",
+    "value": 1000
+  },
+
+  {
+    "name": "精灵长靴",
+    "type": "wondrous",
+    "rarity": "uncommon",
+    "value": 1000
+  },
+
+  {
+    "name": "力量腰带",
+    "type": "wondrous",
+    "rarity": "veryRare",
+    "value": 25000
+  },
+
+  {
+    "name": "力量巨人腰带",
+    "type": "wondrous",
+    "rarity": "legendary",
+    "value": 60000
+  },
+
+  {
+    "name": "守护护符",
+    "type": "wondrous",
+    "rarity": "rare",
+    "value": 5000
+  },
+
+  {
+    "name": "位面罗盘",
+    "type": "wondrous",
+    "rarity": "veryRare",
+    "value": 12000
+  },
+
+  {
+    "name": "魔杖：魔法飞弹",
+    "type": "wand",
+    "rarity": "uncommon",
+    "value": 1500
+  },
+
+  {
+    "name": "魔杖：火球术",
+    "type": "wand",
+    "rarity": "rare",
+    "value": 8000
+  },
+
+  {
+    "name": "魔杖：闪电束",
+    "type": "wand",
+    "rarity": "rare",
+    "value": 8000
+  },
+
+  {
+    "name": "法师之杖",
+    "type": "staff",
+    "rarity": "veryRare",
+    "value": 30000
+  },
+
+  {
+    "name": "贤者法杖",
+    "type": "staff",
+    "rarity": "legendary",
+    "value": 100000
+  },
+
+  {
+    "name": "卷轴：治疗术",
+    "type": "scroll",
+    "rarity": "common",
+    "value": 50
+  },
+
+  {
+    "name": "卷轴：隐形术",
+    "type": "scroll",
+    "rarity": "uncommon",
+    "value": 500
+  },
+
+  {
+    "name": "卷轴：火球术",
+    "type": "scroll",
+    "rarity": "rare",
+    "value": 1500
+  },
+
+  {
+    "name": "卷轴：传送术",
+    "type": "scroll",
+    "rarity": "veryRare",
+    "value": 10000
+  },
+
+  {
+    "name": "卷轴：陨石术",
+    "type": "scroll",
+    "rarity": "legendary",
+    "value": 50000
+  }
+]

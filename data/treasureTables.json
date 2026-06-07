@@ -1,0 +1,81 @@
+[
+  {
+    "tier": 1,
+    "crMin": 0,
+    "crMax": 4,
+
+    "gold": [5, 50],
+
+    "weaponRarity": "common",
+    "armorRarity": "common",
+    "magicRarity": "common",
+
+    "weaponChance": 30,
+    "armorChance": 20,
+    "magicChance": 5
+  },
+
+  {
+    "tier": 2,
+    "crMin": 5,
+    "crMax": 10,
+
+    "gold": [50, 500],
+
+    "weaponRarity": "uncommon",
+    "armorRarity": "uncommon",
+    "magicRarity": "uncommon",
+
+    "weaponChance": 50,
+    "armorChance": 40,
+    "magicChance": 20
+  },
+
+  {
+    "tier": 3,
+    "crMin": 11,
+    "crMax": 16,
+
+    "gold": [500, 5000],
+
+    "weaponRarity": "rare",
+    "armorRarity": "rare",
+    "magicRarity": "rare",
+
+    "weaponChance": 70,
+    "armorChance": 60,
+    "magicChance": 40
+  },
+
+  {
+    "tier": 4,
+    "crMin": 17,
+    "crMax": 20,
+
+    "gold": [5000, 50000],
+
+    "weaponRarity": "veryRare",
+    "armorRarity": "veryRare",
+    "magicRarity": "veryRare",
+
+    "weaponChance": 85,
+    "armorChance": 80,
+    "magicChance": 60
+  },
+
+  {
+    "tier": 5,
+    "crMin": 21,
+    "crMax": 30,
+
+    "gold": [50000, 500000],
+
+    "weaponRarity": "legendary",
+    "armorRarity": "legendary",
+    "magicRarity": "legendary",
+
+    "weaponChance": 100,
+    "armorChance": 100,
+    "magicChance": 80
+  }
+]

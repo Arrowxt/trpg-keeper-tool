@@ -1,0 +1,161 @@
+[
+  {
+    "name": "木棍",
+    "type": "weapon",
+    "category": "simple",
+    "rarity": "common",
+    "value": 1
+  },
+
+  {
+    "name": "匕首",
+    "type": "weapon",
+    "category": "simple",
+    "rarity": "common",
+    "value": 2
+  },
+
+  {
+    "name": "短剑",
+    "type": "weapon",
+    "category": "martial",
+    "rarity": "common",
+    "value": 10
+  },
+
+  {
+    "name": "长剑",
+    "type": "weapon",
+    "category": "martial",
+    "rarity": "common",
+    "value": 15
+  },
+
+  {
+    "name": "战斧",
+    "type": "weapon",
+    "category": "martial",
+    "rarity": "common",
+    "value": 10
+  },
+
+  {
+    "name": "长弓",
+    "type": "weapon",
+    "category": "martial",
+    "rarity": "common",
+    "value": 50
+  },
+
+  {
+    "name": "重弩",
+    "type": "weapon",
+    "category": "martial",
+    "rarity": "common",
+    "value": 75
+  },
+
+  {
+    "name": "+1匕首",
+    "type": "weapon",
+    "category": "magic",
+    "rarity": "uncommon",
+    "value": 300
+  },
+
+  {
+    "name": "+1长剑",
+    "type": "weapon",
+    "category": "magic",
+    "rarity": "uncommon",
+    "value": 500
+  },
+
+  {
+    "name": "+1战斧",
+    "type": "weapon",
+    "category": "magic",
+    "rarity": "uncommon",
+    "value": 500
+  },
+
+  {
+    "name": "+2长剑",
+    "type": "weapon",
+    "category": "magic",
+    "rarity": "rare",
+    "value": 3000
+  },
+
+  {
+    "name": "+2战锤",
+    "type": "weapon",
+    "category": "magic",
+    "rarity": "rare",
+    "value": 3000
+  },
+
+  {
+    "name": "火焰长剑",
+    "type": "weapon",
+    "category": "magic",
+    "rarity": "rare",
+    "value": 5000
+  },
+
+  {
+    "name": "寒冰战斧",
+    "type": "weapon",
+    "category": "magic",
+    "rarity": "rare",
+    "value": 5000
+  },
+
+  {
+    "name": "闪电长枪",
+    "type": "weapon",
+    "category": "magic",
+    "rarity": "veryRare",
+    "value": 10000
+  },
+
+  {
+    "name": "+3长剑",
+    "type": "weapon",
+    "category": "magic",
+    "rarity": "veryRare",
+    "value": 15000
+  },
+
+  {
+    "name": "屠龙剑",
+    "type": "weapon",
+    "category": "legendary",
+    "rarity": "legendary",
+    "value": 50000
+  },
+
+  {
+    "name": "暗影之刃",
+    "type": "weapon",
+    "category": "legendary",
+    "rarity": "legendary",
+    "value": 50000
+  },
+
+  {
+    "name": "日耀圣剑",
+    "type": "weapon",
+    "category": "legendary",
+    "rarity": "legendary",
+    "value": 80000
+  },
+
+  {
+    "name": "毁灭者巨剑",
+    "type": "weapon",
+    "category": "artifact",
+    "rarity": "artifact",
+    "value": 999999
+  }
+]

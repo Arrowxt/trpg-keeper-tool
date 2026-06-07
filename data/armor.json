@@ -1,0 +1,161 @@
+[
+  {
+    "name": "布甲",
+    "category": "light",
+    "ac": 11,
+    "rarity": "common",
+    "value": 5
+  },
+
+  {
+    "name": "皮甲",
+    "category": "light",
+    "ac": 11,
+    "rarity": "common",
+    "value": 10
+  },
+
+  {
+    "name": "镶钉皮甲",
+    "category": "light",
+    "ac": 12,
+    "rarity": "common",
+    "value": 45
+  },
+
+  {
+    "name": "兽皮甲",
+    "category": "medium",
+    "ac": 12,
+    "rarity": "common",
+    "value": 10
+  },
+
+  {
+    "name": "锁子衫",
+    "category": "medium",
+    "ac": 13,
+    "rarity": "common",
+    "value": 50
+  },
+
+  {
+    "name": "鳞甲",
+    "category": "medium",
+    "ac": 14,
+    "rarity": "common",
+    "value": 50
+  },
+
+  {
+    "name": "胸甲",
+    "category": "medium",
+    "ac": 14,
+    "rarity": "common",
+    "value": 400
+  },
+
+  {
+    "name": "半身板甲",
+    "category": "medium",
+    "ac": 15,
+    "rarity": "common",
+    "value": 750
+  },
+
+  {
+    "name": "环甲",
+    "category": "heavy",
+    "ac": 14,
+    "rarity": "common",
+    "value": 30
+  },
+
+  {
+    "name": "锁子甲",
+    "category": "heavy",
+    "ac": 16,
+    "rarity": "common",
+    "value": 75
+  },
+
+  {
+    "name": "条板甲",
+    "category": "heavy",
+    "ac": 17,
+    "rarity": "common",
+    "value": 200
+  },
+
+  {
+    "name": "全身板甲",
+    "category": "heavy",
+    "ac": 18,
+    "rarity": "common",
+    "value": 1500
+  },
+
+  {
+    "name": "+1皮甲",
+    "category": "magic",
+    "ac": 12,
+    "rarity": "uncommon",
+    "value": 1000
+  },
+
+  {
+    "name": "+1锁子甲",
+    "category": "magic",
+    "ac": 17,
+    "rarity": "uncommon",
+    "value": 1500
+  },
+
+  {
+    "name": "+1全身板甲",
+    "category": "magic",
+    "ac": 19,
+    "rarity": "rare",
+    "value": 5000
+  },
+
+  {
+    "name": "+2全身板甲",
+    "category": "magic",
+    "ac": 20,
+    "rarity": "veryRare",
+    "value": 15000
+  },
+
+  {
+    "name": "龙鳞甲",
+    "category": "magic",
+    "ac": 18,
+    "rarity": "veryRare",
+    "value": 25000
+  },
+
+  {
+    "name": "精灵秘银甲",
+    "category": "magic",
+    "ac": 18,
+    "rarity": "veryRare",
+    "value": 30000
+  },
+
+  {
+    "name": "守护者圣甲",
+    "category": "legendary",
+    "ac": 20,
+    "rarity": "legendary",
+    "value": 80000
+  },
+
+  {
+    "name": "不朽龙王铠",
+    "category": "artifact",
+    "ac": 22,
+    "rarity": "artifact",
+    "value": 999999
+  }
+]
