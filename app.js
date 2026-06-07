@@ -7,6 +7,8 @@ let weapons = [];
 let armors = [];
 let magicItems = [];
 let treasureTables = [];
+let gems = [];
+let artObjects = [];
 
 // =====================
 // 工具函数
@@ -80,7 +82,15 @@ async function loadDatabase() {
             await loadJSON(
                 "data/treasureTables.json"
             );
+        gems =
+            await loadJSON(
+               "data/gems.json"
+            );
 
+        artObjects =
+            await loadJSON(
+               "data/artObjects.json"
+            );
         initMonsterList();
 
         console.log(
@@ -272,13 +282,41 @@ function searchBody() {
             gold *
             (level / 2)
         );
+    if(chance(40)){
+
 
     html += `
         <p class="gold">
             💰 ${gold} 金币
         </p>
     `;
+    if(chance(40)){
 
+    const gem =
+        getRandom(gems);
+
+    html += `
+        <p>
+            💎 ${gem.name}
+            (${gem.value}gp)
+        </p>
+    `;
+
+}
+
+if(chance(20)){
+
+    const art =
+        getRandom(artObjects);
+
+    html += `
+        <p>
+            🏺 ${art.name}
+            (${art.value}gp)
+        </p>
+    `;
+
+}
     html += `
         <h3>
             战利品
