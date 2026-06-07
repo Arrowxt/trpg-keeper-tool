@@ -1,206 +1,76 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #0f0f14;
+    color: white;
 }
 
-body{
-
-    min-height:100vh;
-
-    font-family:
-        "Segoe UI",
-        sans-serif;
-
-    background:
-        linear-gradient(
-            180deg,
-            #1b1b1b,
-            #0f0f0f
-        );
-
-    color:#f5e6c8;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    padding:30px;
+.app {
+    display: flex;
+    height: 100vh;
 }
 
-.container{
-    width:100%;
-    max-width:900px;
+/* 左侧面板 */
+.panel {
+    width: 300px;
+    padding: 20px;
+    background: #1a1a22;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.card{
-
-    background:#222;
-
-    border:3px solid #8b6f3d;
-
-    border-radius:15px;
-
-    padding:30px;
-
-    box-shadow:
-        0 0 20px rgba(255,215,0,.2);
-
+.panel h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
-h1{
-
-    text-align:center;
-
-    color:#ffd700;
-
-    margin-bottom:10px;
-
-    font-size:2rem;
+.panel select,
+.panel input {
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
 }
 
-.subtitle{
-
-    text-align:center;
-
-    color:#c8b07a;
-
-    margin-bottom:30px;
+.panel button {
+    margin-top: 10px;
+    padding: 10px;
+    background: #ff9900;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
 }
 
-.form-group{
-
-    margin-bottom:20px;
+/* 右侧输出区 */
+.output {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-content: flex-start;
 }
 
-label{
-
-    display:block;
-
-    margin-bottom:8px;
-
-    color:#e0c98f;
-
-    font-weight:bold;
+/* 卡牌 */
+.card {
+    width: 220px;
+    padding: 12px;
+    border-radius: 10px;
+    background: #222;
+    border: 1px solid #333;
+    transform: translateY(10px);
+    opacity: 0;
+    animation: popIn 0.3s forwards;
 }
 
-select{
-
-    width:100%;
-
-    padding:12px;
-
-    background:#2d2d2d;
-
-    color:white;
-
-    border:1px solid #8b6f3d;
-
-    border-radius:8px;
-
-    font-size:16px;
+@keyframes popIn {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
-button{
-
-    width:100%;
-
-    padding:15px;
-
-    border:none;
-
-    border-radius:10px;
-
-    background:#b8860b;
-
-    color:white;
-
-    font-size:18px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    transition:.2s;
-}
-
-button:hover{
-
-    background:#daa520;
-
-    transform:translateY(-2px);
-}
-
-#output{
-
-    margin-top:30px;
-
-    padding:20px;
-
-    background:#181818;
-
-    border:2px solid #555;
-
-    border-radius:10px;
-
-    min-height:200px;
-}
-
-#output h2{
-
-    color:#ffd700;
-
-    margin-bottom:10px;
-}
-
-#output h3{
-
-    color:#e0c98f;
-
-    margin-top:15px;
-    margin-bottom:10px;
-}
-
-#output p{
-
-    margin:8px 0;
-}
-
-.gold{
-
-    color:#ffd700;
-
-    font-weight:bold;
-
-    font-size:20px;
-}
-
-.uncommon{
-
-    color:#66ff66;
-
-    font-weight:bold;
-}
-
-.rare{
-
-    color:#66aaff;
-
-    font-weight:bold;
-}
-
-.epic{
-
-    color:#cc66ff;
-
-    font-weight:bold;
-}
-
-hr{
-
-    margin:15px 0;
-
-    border:none;
-
-    border-top:1px solid #555;
+.gold {
+    border-color: gold;
 }

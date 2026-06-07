@@ -1,3 +1,4 @@
+
 // =====================
 // 数据库
 // =====================
@@ -15,525 +16,256 @@ let artObjects = [];
 // =====================
 
 function getRandom(arr) {
-
-    return arr[
-        Math.floor(
-            Math.random() * arr.length
-        )
-    ];
-
+    if (!arr || arr.length === 0) return null;
+    return arr[Math.floor(Math.random() * arr.length)];
 }
 
 function roll(min, max) {
-
-    return Math.floor(
-        Math.random() *
-        (max - min + 1)
-    ) + min;
-
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function chance(percent) {
-
-    return (
-        Math.random() * 100
-    ) < percent;
-
+function chance(p) {
+    return Math.random() < p / 100;
 }
 
 // =====================
-// 加载数据库
+// JSON加载
 // =====================
 
 async function loadJSON(path) {
-
-    const response =
-        await fetch(path);
-
-    return await response.json();
-
-}
-
-async function loadDatabase() {
-
-    try {
-
-        monsters =
-            await loadJSON(
-                "data/monsters.json"
-            );
-
-        weapons =
-            await loadJSON(
-                "data/weapons.json"
-            );
-
-        armors =
-            await loadJSON(
-                "data/armor.json"
-            );
-
-        magicItems =
-            await loadJSON(
-                "data/magicItems.json"
-            );
-
-        treasureTables =
-            await loadJSON(
-                "data/treasureTables.json"
-            );
-        gems =
-            await loadJSON(
-               "data/gems.json"
-            );
-
-        artObjects =
-            await loadJSON(
-               "data/artObjects.json"
-            );
-        initMonsterList();
-
-        console.log(
-            "数据库加载成功"
-        );
-
-    }
-
-    catch(error) {
-
-        console.error(
-            "数据库加载失败",
-            error
-        );
-
-    }
-
+    const res = await fetch(path);
+    return await res.json();
 }
 
 // =====================
-// 怪物列表
+// 初始化数据库
+// =====================
+
+async function loadDatabase() {
+    try {
+        monsters = await loadJSON("data/monsters.json");
+        weapons = await loadJSON("data/weapons.json");
+        armors = await loadJSON("data/armor.json");
+        magicItems = await loadJSON("data/magicItems.json");
+        treasureTables = await loadJSON("data/treasureTables.json");
+        gems = await loadJSON("data/gems.json");
+        artObjects = await loadJSON("data/artObjects.json");
+
+        initMonsterList();
+
+        console.log("✅ 数据库加载成功");
+    } catch (err) {
+        console.error("❌ 数据库加载失败", err);
+    }
+}
+
+// =====================
+// 怪物列表初始化
 // =====================
 
 function initMonsterList() {
-
-    const select =
-        document.getElementById(
-            "corpseType"
-        );
+    const select = document.getElementById("corpseType");
+    if (!select) return;
 
     select.innerHTML = "";
 
-    monsters.forEach(monster => {
-
-        const option =
-            document.createElement(
-                "option"
-            );
-
-        option.value =
-            monster.name;
-
-        option.textContent =
-            monster.name;
-
-        select.appendChild(
-            option
-        );
-
+    monsters.forEach(m => {
+        const opt = document.createElement("option");
+        opt.value = m.name;
+        opt.textContent = m.name;
+        select.appendChild(opt);
     });
-
 }
 
 // =====================
-// 宝藏等级
+// 查表
 // =====================
 
 function getTreasureTable(cr) {
-
-    return treasureTables.find(
-
-        table =>
-
-            cr >= table.crMin &&
-            cr <= table.crMax
-
-    );
-
+    return treasureTables.find(t => cr >= t.crMin && cr <= t.crMax);
 }
 
 // =====================
-// 品质颜色
+// UI卡牌输出（兼容你原HTML）
 // =====================
 
-function rarityColor(rarity) {
+function addResult(html, className = "") {
+    const output = document.getElementById("output");
 
-    switch(rarity) {
+    const div = document.createElement("div");
+    div.className = "card " + className;
+    div.innerHTML = html;
 
-        case "common":
-            return "#cccccc";
-
-        case "uncommon":
-            return "#00ff66";
-
-        case "rare":
-            return "#3399ff";
-
-        case "veryRare":
-            return "#bb66ff";
-
-        case "legendary":
-            return "#ff9900";
-
-        case "artifact":
-            return "#ff3333";
-
-        default:
-            return "white";
-
-    }
-
+    output.appendChild(div);
 }
 
 // =====================
-// 搜尸体
+// 掉落核心（避免“什么都不出”的体验问题）
+// =====================
+
+function rollLootTier(cr) {
+    let d = roll(1, 100);
+    let bonus = Math.min(cr * 2, 20);
+    let total = d + bonus;
+
+    if (total <= 40) return "junk";
+    if (total <= 70) return "normal";
+    if (total <= 90) return "good";
+    return "rare";
+}
+
+// =====================
+// 主函数（替换核心）
 // =====================
 
 function searchBody() {
 
-    const corpseType =
-        document.getElementById(
-            "corpseType"
-        ).value;
+    const corpseType = document.getElementById("corpseType").value;
+    const level = parseInt(document.getElementById("level").value);
+    const success = document.getElementById("success").value;
 
-    const level =
-        parseInt(
-            document.getElementById(
-                "level"
-            ).value
-        );
+    const output = document.getElementById("output");
+    output.innerHTML = "";
 
-    const success =
-        document.getElementById(
-            "success"
-        ).value;
-
-    const output =
-        document.getElementById(
-            "output"
-        );
-
-    const monster =
-        monsters.find(
-
-            m =>
-                m.name ===
-                corpseType
-
-        );
+    const monster = monsters.find(m => m.name === corpseType);
 
     if (!monster) {
-
-        output.innerHTML =
-            "<h3>找不到怪物</h3>";
-
+        addResult("<h3>找不到怪物</h3>");
         return;
-
     }
 
-    const table =
-        getTreasureTable(
-            monster.cr
-        );
+    const table = getTreasureTable(monster.cr);
 
     if (!table) {
-
-        output.innerHTML =
-            "<h3>没有对应宝藏表</h3>";
-
+        addResult("<h3>没有宝藏表</h3>");
         return;
-
     }
 
-    let html = "";
+    // =====================
+    // 标题
+    // =====================
 
-    html += `
+    addResult(`
         <h2>${monster.name}</h2>
-
-        <p>
-            CR：
-            ${monster.cr}
-        </p>
-
-        <hr>
-    `;
+        <p>CR ${monster.cr}</p>
+    `);
 
     // =====================
-    // 金币
+    // 金币（稳定掉落）
     // =====================
 
-    let gold =
-        roll(
-            table.gold[0],
-            table.gold[1]
-        );
+    let gold = roll(table.gold[0], table.gold[1]);
+    gold = Math.floor(gold * Math.max(0.5, level / 2));
 
-    gold =
-        Math.floor(
-            gold *
-            (level / 2)
-        );
-    if(chance(40)){
+    addResult(`<h3>💰 金币</h3><p>${gold}</p>`, "gold");
 
+    // =====================
+    // 掉落等级
+    // =====================
 
-    html += `
-        <p class="gold">
-            💰 ${gold} 金币
-        </p>
-    `;
-    if(chance(40)){
+    const tier = rollLootTier(monster.cr);
 
-    const gem =
-        getRandom(gems);
+    // =====================
+    // 宝石 / 艺术品（稳定出现，不再消失）
+    // =====================
 
-    html += `
-        <p>
-            💎 ${gem.name}
-            (${gem.value}gp)
-        </p>
-    `;
+    if (tier !== "junk") {
 
-}
+        if (chance(60)) {
+            const g = getRandom(gems);
+            if (g) {
+                addResult(`<h3>💎 宝石</h3><p>${g.name}</p>`);
+            }
+        }
 
-if(chance(20)){
-
-    const art =
-        getRandom(artObjects);
-
-    html += `
-        <p>
-            🏺 ${art.name}
-            (${art.value}gp)
-        </p>
-    `;
-
-}
-    html += `
-        <h3>
-            战利品
-        </h3>
-    `;
+        if (chance(40)) {
+            const a = getRandom(artObjects);
+            if (a) {
+                addResult(`<h3>🏺 艺术品</h3><p>${a.name}</p>`);
+            }
+        }
+    }
 
     // =====================
     // 武器
     // =====================
 
-    if (
-        chance(
-            table.weaponChance
-        )
-    ) {
+    if (tier !== "junk" && chance(table.weaponChance)) {
 
-        const pool =
-            weapons.filter(
+        const pool = weapons.filter(
+            w => w.rarity === table.weaponRarity
+        );
 
-                w =>
-                    w.rarity ===
-                    table.weaponRarity
+        const w = getRandom(pool);
 
-            );
-
-        if(pool.length > 0) {
-
-            const weapon =
-                getRandom(pool);
-
-            html += `
-                <p
-                style="
-                color:
-                ${rarityColor(
-                    weapon.rarity
-                )}
-                ">
-                ⚔
-                ${weapon.name}
-                </p>
-            `;
-
+        if (w) {
+            addResult(`<h3>⚔ 武器</h3><p>${w.name}</p>`);
         }
-
     }
 
     // =====================
     // 护甲
     // =====================
 
-    if (
-        chance(
-            table.armorChance
-        )
-    ) {
+    if (tier !== "junk" && chance(table.armorChance)) {
 
-        const pool =
-            armors.filter(
+        const pool = armors.filter(
+            a => a.rarity === table.armorRarity
+        );
 
-                a =>
-                    a.rarity ===
-                    table.armorRarity
+        const a = getRandom(pool);
 
-            );
-
-        if(pool.length > 0) {
-
-            const armor =
-                getRandom(pool);
-
-            html += `
-                <p
-                style="
-                color:
-                ${rarityColor(
-                    armor.rarity
-                )}
-                ">
-                🛡
-                ${armor.name}
-                </p>
-            `;
-
+        if (a) {
+            addResult(`<h3>🛡 护甲</h3><p>${a.name}</p>`);
         }
-
     }
 
     // =====================
     // 魔法物品
     // =====================
 
-    if (
-        chance(
-            table.magicChance
-        )
-    ) {
+    if (tier === "rare" && chance(table.magicChance)) {
 
-        const pool =
-            magicItems.filter(
+        const pool = magicItems.filter(
+            m => m.rarity === table.magicRarity
+        );
 
-                item =>
-                    item.rarity ===
-                    table.magicRarity
+        const m = getRandom(pool);
 
-            );
-
-        if(pool.length > 0) {
-
-            const item =
-                getRandom(pool);
-
-            html += `
-                <p
-                style="
-                color:
-                ${rarityColor(
-                    item.rarity
-                )}
-                ">
-                🔮
-                ${item.name}
-                </p>
-            `;
-
+        if (m) {
+            addResult(`<h3>🔮 魔法物品</h3><p>${m.name}</p>`);
         }
-
     }
 
     // =====================
     // 成功奖励
     // =====================
 
-    if (
-        success === "困难成功"
-    ) {
-
-        html += `
-            <p>
-                🟢 发现额外金币
-            </p>
-        `;
-
+    if (success === "困难成功") {
+        addResult("<p>🟢 额外发现线索</p>");
     }
 
-    if (
-        success === "极难成功"
-    ) {
-
-        html += `
-            <p>
-                🔵 发现隐藏口袋
-            </p>
-        `;
-
+    if (success === "极难成功") {
+        addResult("<p>🔵 找到隐藏夹层</p>");
     }
 
-    if (
-        success === "大成功"
-    ) {
+    if (success === "大成功") {
+        addResult("<h3>✨ 大成功</h3><p>隐藏宝藏</p>", "gold");
 
-        html += `
-            <p
-            style="
-            color:gold;
-            font-weight:bold;
-            ">
-            ✨ 发现隐藏宝藏
-            </p>
-        `;
+        const legendary = getRandom(
+            magicItems.filter(i => i.rarity === "legendary")
+        );
 
-        const legendaryPool =
-
-            magicItems.filter(
-
-                item =>
-
-                    item.rarity ===
-                    "legendary"
-
-            );
-
-        if(
-            legendaryPool.length > 0
-        ) {
-
-            const legendary =
-
-                getRandom(
-                    legendaryPool
-                );
-
-            html += `
-                <p
-                style="
-                color:#ff9900;
-                ">
-                🟠
-                ${legendary.name}
-                </p>
-            `;
-
+        if (legendary) {
+            addResult(`<p style="color:#ff9900;">🟠 ${legendary.name}</p>`);
         }
-
     }
-
-    output.innerHTML = html;
-
 }
 
 // =====================
 // 启动
 // =====================
 
-window.onload =
-async function() {
-
+window.onload = async function () {
     await loadDatabase();
-
 };

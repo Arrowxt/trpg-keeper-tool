@@ -1,109 +1,47 @@
 <!DOCTYPE html>
-
-<html lang="zh-CN">
-
+<html lang="zh">
 <head>
-
-```
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>DND 战利品生成器</title>
 
-<link rel="stylesheet"
-      href="style.css">
-```
-
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="container">
+<div class="app">
 
-```
-<div class="card">
+    <!-- 左侧控制面板 -->
+    <div class="panel">
 
-    <h1>⚔️ DND 战利品生成器</h1>
+        <h1>⚔️ DND 战利品生成器</h1>
 
-    <p class="subtitle">
-        击败怪物后搜索尸体并获得随机战利品
-    </p>
+        <label>怪物</label>
+        <select id="corpseType"></select>
 
-    <div class="form-group">
+        <label>等级</label>
+        <input id="level" type="number" value="1">
 
-        <label>
-            怪物尸体
-        </label>
-
-        <select id="corpseType">
-
-            <option>
-                正在加载怪物数据库...
-            </option>
-
-        </select>
-
-    </div>
-
-    <div class="form-group">
-
-        <label>
-            冒险者等级
-        </label>
-
-        <select id="level">
-
-            <option value="1">1级</option>
-            <option value="3">3级</option>
-            <option value="5">5级</option>
-            <option value="10">10级</option>
-            <option value="15">15级</option>
-            <option value="20">20级</option>
-
-        </select>
-
-    </div>
-
-    <div class="form-group">
-
-        <label>
-            搜查结果
-        </label>
-
+        <label>检定结果</label>
         <select id="success">
-
             <option>普通成功</option>
             <option>困难成功</option>
             <option>极难成功</option>
             <option>大成功</option>
-
         </select>
 
-    </div>
-
-    <button onclick="searchBody()">
-        🔍 搜索尸体
-    </button>
-
-    <div id="output">
-
-        <h3>等待搜索...</h3>
-
-        <p>
-            请选择怪物后开始搜索。
-        </p>
+        <button onclick="searchBody()">🔍 搜索尸体</button>
 
     </div>
 
-</div>
-```
+    <!-- 右侧输出 -->
+    <div class="output" id="output"></div>
 
 </div>
 
 <script src="app.js"></script>
 
 </body>
-
 </html>
